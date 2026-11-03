@@ -54,13 +54,13 @@ button {
 
 /* Work image */
 .background::before {
-  background-image: url("../images/workBg.png");
+  background-image: url("images/workBg.png");
   opacity: 1;
 }
 
 /* Rest image */
 .background::after {
-  background-image: url("../images/restBg.png");
+  background-image: url("images/restBg.png");
   opacity: 0;
 }
 
@@ -168,9 +168,9 @@ p {
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
-    box-shadow 0.3s ease;
-    opacity: 0.3s ease;
-    padding: 0.3s ease;
+    box-shadow 0.3s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
   display: flex;
   align-items: center;
   opacity: 0.2;
