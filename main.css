@@ -1,0 +1,400 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: figtree, sans-serif;
+}
+
+button {
+  font-family: figtree, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+
+.background {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 30px 25%;
+  gap: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+/* Both background images occupy the same space */
+.background::before,
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  transition: opacity 0.5s ease-in-out;
+
+  z-index: 0;
+}
+
+/* Work image */
+.background::before {
+  background-image: url("../images/workBg.png");
+  opacity: 1;
+}
+
+/* Rest image */
+.background::after {
+  background-image: url("../images/restBg.png");
+  opacity: 0;
+}
+
+/* When rest is active */
+.background.rest::before {
+  opacity: 0;
+}
+
+.background.rest::after {
+  opacity: 1;
+}
+
+/* Keep your actual content above the images */
+.background > * {
+  position: relative;
+  z-index: 1;
+}
+
+p {
+  font-family: figtree, sans-serif;
+  margin: 0;
+}
+
+.notBold {
+  font-weight: 100;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.DailySessionHeader,
+.TimeTypeSelector,
+.CurrentInterval,
+.DailyActivityRecord {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0); 
+}
+
+.IntervalHistory {
+  width: 100%;
+  flex: 1;
+}
+
+.DailySessionHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.timer-divider {
+  width: 1px;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.timers {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.timerContainer {
+  padding: 10px 20px;
+  border-radius:7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.timerContainer img {
+  height: 15px;
+  width: 15px;
+}
+
+.TimeTypeSelector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px;
+  gap: 10px;
+}
+
+.TimeTypeContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  border-radius: 999px;
+  gap: 10px;
+}
+
+.mode {
+  padding: 12px 25px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.138);
+  color: white;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+    opacity: 0.3s ease;
+    padding: 0.3s ease;
+  display: flex;
+  align-items: center;
+  opacity: 0.2;
+}
+
+.mode img {
+  height: 20px;
+  width: 20px;
+}
+
+.mode.work {
+  border-radius: 999px;
+}
+
+.mode.rest {
+  border-radius: 999px;
+}
+
+.mode.active.work {
+  background-color: rgba(72, 22, 22, 0.738);
+  opacity: 1;
+  border: 1px solid rgba(216, 137, 0, 0.332);
+  padding: 12px 35px;
+}
+
+.mode.active.rest {
+  background-color: rgba(11, 120, 80, 0.799);
+  opacity: 1;
+  border: 1px solid rgba(28, 246, 112, 0.562);
+  padding: 12px 35px;
+}
+
+.CurrentInterval {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  overflow: visible;
+}
+
+.time {
+  font-size: 80px;
+  color: white;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.lap-button {
+  background-color: #8b9df620;
+  border: none;
+  font-family: figtree, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+  padding: 10px 30px;
+  position: relative;
+  z-index: 1;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.lap-button:hover {
+  background-color: #8b9df658;
+}
+
+.split-button {
+  border: none;
+  cursor: pointer;
+  height: fit-content;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.split-button:hover {
+  background-color: #fefeff58;
+}
+
+.playPause-button {
+  border: none;
+  font-family: figtree, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: background-color 0.2s ease;
+}
+
+
+.playPause-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lap-button.image {
+  position: relative;
+  z-index: 10;
+}
+
+.IntervalHistory {
+  background: linear-gradient(
+  135deg,
+  rgba(255, 220, 0, 0.12),
+  rgba(255, 50, 50, 0.12),
+  rgba(50, 200, 80, 0.12)
+  );
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+  0 10px 30px rgba(255, 255, 255, 0.088),
+  0 3px 10px rgba(0, 0, 0, 0.06);
+  
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+}
+
+.interval {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  border-radius: 12px;
+  width: 100%;
+  height: fit-content;
+}
+
+.interval > * {
+  min-width: 0;                    /* lets children shrink below their content size */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.interval-rest {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.interval-work {
+  background: rgba(255, 255, 255, 0.091);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.interval-divider {
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.DailyActivityRecord {
+  background: rgba(255, 255, 255, 0.091);
+  border-radius: 18px;
+  height: fit-content;
+  padding: 10px;
+}
+
+.ActivityRecord {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  color: white;
+  background: rgba(255, 255, 255, 0.091);
+  height: fit-content;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.TotalIntervalDuration {
+  background: rgba(5, 174, 5, 0);
+}
+
+.interval-note {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.051);
+  border-radius: 12px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.interval-note::placeholder {
+    color: rgba(255, 255, 255, 0.368);              /* placeholder only */
+}
+
+.empty-message {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.368);
+  font-size: 16px;
+  padding: 20px;
+  text-decoration: italic;
+}

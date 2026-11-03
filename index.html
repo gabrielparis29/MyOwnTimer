@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="/main.css" rel="stylesheet" />
+    <title>Timer</title>
+</head>
+
+<body>
+    <div class="background">
+
+        <div class="DailySessionHeader">
+            <p class="notBold" id="todaysDate"></p>
+            <div class="timers">
+                <div class="timerContainer">
+                    <img src="icons/clock.svg" alt="">
+                    <p id="total-time" class="bold">0:00</p>
+                </div>
+
+                <div class="timer-divider"></div>
+
+                <div class="timerContainer">
+                    <img src="icons/gym.svg" alt="">
+                    <p id="total-work-duration" class="TotalIntervalDuration">0:00</p>
+                </div>
+
+                <div class="timer-divider"></div>
+
+                
+                <div class="timerContainer">
+                    <img src="icons/moon.svg" alt="">
+                    <p id="total-rest-duration" class="TotalIntervalDuration">0:00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="TimeTypeSelector">
+
+            <div class="TimeTypeContainer">
+                <div class="mode work active">
+                    <img src="icons/gym.svg" alt="Trabajo">
+                </div>
+
+                <div class="mode rest">
+                    <img src="icons/moon.svg" alt="Descanso">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="CurrentInterval">
+
+            <p class="bold time">0:00</p>
+
+            <button id="playPause-button" class="playPause-button">
+                <img id="play-icon" src="icons/play.png" alt="Play">
+            </button>
+
+            <button id="lap-button" class="lap-button">
+                <img src="icons/refresh.png" alt="">
+            </button>
+
+            <button id="split-button" class="split-button">
+                <img src="icons/split.png" alt="Split">
+            </button>
+        </div>
+
+        <div class="IntervalHistory">
+
+        </div>
+    </div>
+    <script src="/main.js"></script>
+</body>
+
+</html>
